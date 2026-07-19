@@ -1427,7 +1427,7 @@ do
 
 		local LoaderConfig = {
 			Name = Config.Name;
-			Logo = 'rbxassetid://'..Config.Logo;
+			Logo = 'rbxthumb://type=Asset&id='..Config.Logo..'&w=150&h=150';
 			ConfigFolder = Config.ConfigFolder;
 			Status = Config.Status;
 			Accent = Config.Accent or syde.theme.Accent;
@@ -1456,7 +1456,7 @@ do
 		LOADER.loader.profile.Image = LoaderConfig.Logo;
 		LOADER.loader.ImageLabel.Visible = false;
 		LOADER.loader.profile.Title.RichText = true;
-		LOADER.loader.profile.Title.Text = '<font color="#00ff00">Bamboo</font>';
+		LOADER.loader.profile.Title.Text = '<font color="#0D6800">Bamboo</font>';
 
 		local ti = TweenInfo.new(0.5, Enum.EasingStyle.Exponential)
 
@@ -2886,8 +2886,10 @@ function syde:Init(library)
 	topIcon.BackgroundTransparency = 1
 	topIcon.Size = UDim2.new(0, 30, 0, 30)
 	topIcon.Position = UDim2.new(0, 15, 0.5, -15)
-	topIcon.Image = "rbxassetid://77273004669623"
+	topIcon.Image = "rbxthumb://type=Asset&id=77273004669623&w=150&h=150"
 	topIcon.ScaleType = Enum.ScaleType.Fit
+	
+	tweenservice:Create(topIcon, TweenInfo.new(3, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1), {Rotation = 360}):Play()
 
 	--dragging
 	syde:AddDrag(top, window, true)
@@ -5844,8 +5846,12 @@ function syde:Init(library)
 
 					syde:AddConnection(userinput.InputEnded, function(input, processed)
 						if input.UserInputType == Enum.UserInputType.MouseButton1  or input.UserInputType == Enum.UserInputType.Touch then
-							dragging = false
-							tweenservice:Create(Slider.Title, TweenInfo.new( 0.5, Enum.EasingStyle.Exponential ), { TextTransparency = 0.6 }):Play()
+							if dragging then
+								dragging = false
+								if Slider and Slider:FindFirstChild("Title") then
+									tweenservice:Create(Slider.Title, TweenInfo.new( 0.5, Enum.EasingStyle.Exponential ), { TextTransparency = 0.6 }):Play()
+								end
+							end
 						end
 					end)
 
@@ -8138,8 +8144,12 @@ function syde:Init(library)
 
 				syde:AddConnection(userinput.InputEnded, function(input, processed)
 					if input.UserInputType == Enum.UserInputType.MouseButton1  or input.UserInputType == Enum.UserInputType.Touch then
-						dragging = false
-						tweenservice:Create(Slider.Title, TweenInfo.new( 0.5, Enum.EasingStyle.Exponential ), { TextTransparency = 0.6 }):Play()
+						if dragging then
+							dragging = false
+							if Slider and Slider:FindFirstChild("Title") then
+								tweenservice:Create(Slider.Title, TweenInfo.new( 0.5, Enum.EasingStyle.Exponential ), { TextTransparency = 0.6 }):Play()
+							end
+						end
 					end
 				end)
 

@@ -1458,9 +1458,9 @@ do
 		LOADER.loader.ImageLabel.Image = LoaderConfig.Logo;
 		
 		LOADER.loader.profile.Title.RichText = true;
-		LOADER.loader.profile.Title.Text = '<font color="#75734D">BAMBOO</font>';
+		LOADER.loader.profile.Title.Text = '<font color="#FFFFFF">BAMBOO</font>';
 		LOADER.loader.profile.Title.Font = Enum.Font.GothamBold;
-		LOADER.loader.profile.Title.Position = LOADER.loader.profile.Title.Position + UDim2.new(0, 0, 0, 35);
+		LOADER.loader.profile.Title.Position = LOADER.loader.profile.Title.Position + UDim2.new(0, 0, 0, 50);
 		
 		if LOADER.loader:FindFirstChild("dots") then
 			for _, dot in ipairs(LOADER.loader.dots:GetChildren()) do
@@ -2221,8 +2221,8 @@ function syde:Notify(Notification)
 		bgSpin.Position = UDim2.new(1, -20, 0.5, 0)
 		bgSpin.AnchorPoint = Vector2.new(1, 0.5)
 		bgSpin.Image = "rbxassetid://116577651684559"
-		bgSpin.ImageTransparency = 0.25
-		bgSpin.ZIndex = 0
+		bgSpin.ImageTransparency = 0
+		bgSpin.ZIndex = 10
 		tweenservice:Create(bgSpin, TweenInfo.new(4, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1), {Rotation = 360}):Play()
 
 		local function CloseNotif()

@@ -112,8 +112,8 @@ local loaded = false
 local syde = {
 
 	theme = {
-		['Accent'] = Color3.fromRGB(13, 104, 0);
-		['HitBox'] = Color3.fromRGB(13, 104, 0);
+		['Accent'] = Color3.fromRGB(117, 115, 77);
+		['HitBox'] = Color3.fromRGB(117, 115, 77);
 		['DropShadow']   = ColorSequence.new(Color3.fromRGB(0, 0, 0));
 
 	};
@@ -1456,7 +1456,9 @@ do
 		LOADER.loader.profile.Image = LoaderConfig.Logo;
 		LOADER.loader.ImageLabel.Visible = false;
 		LOADER.loader.profile.Title.RichText = true;
-		LOADER.loader.profile.Title.Text = '<font color="#0D6800">Bamboo</font>';
+		LOADER.loader.profile.Title.Text = '<font color="#75734D">Bamboo</font>';
+		
+		tweenservice:Create(LOADER.loader.profile, TweenInfo.new(3, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1), {Rotation = 360}):Play()
 
 		local ti = TweenInfo.new(0.5, Enum.EasingStyle.Exponential)
 

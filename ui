@@ -1453,12 +1453,22 @@ do
 			--	LOADER.load.logo["Title/Status"].Text = string.format('%s  <font color="#363636">•</font>  %s', LoaderConfig.Name, statusData.Text)
 		end
 
-		LOADER.loader.profile.Image = LoaderConfig.Logo;
-		LOADER.loader.ImageLabel.Visible = false;
+		LOADER.loader.profile.Image = "";
+		LOADER.loader.ImageLabel.Visible = true;
+		LOADER.loader.ImageLabel.Image = LoaderConfig.Logo;
+		
 		LOADER.loader.profile.Title.RichText = true;
 		LOADER.loader.profile.Title.Text = '<font color="#75734D">Bamboo</font>';
 		
-		tweenservice:Create(LOADER.loader.profile, TweenInfo.new(3, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1), {Rotation = 360}):Play()
+		if LOADER.loader:FindFirstChild("dots") then
+			for _, dot in ipairs(LOADER.loader.dots:GetChildren()) do
+				if dot:IsA("Frame") then
+					dot.BackgroundColor3 = Color3.fromRGB(117, 115, 77)
+				end
+			end
+		end
+		
+		tweenservice:Create(LOADER.loader.ImageLabel, TweenInfo.new(3, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1), {Rotation = 360}):Play()
 
 		local ti = TweenInfo.new(0.5, Enum.EasingStyle.Exponential)
 

@@ -112,8 +112,8 @@ local loaded = false
 local syde = {
 
 	theme = {
-		['Accent'] = Color3.fromRGB(255, 151, 227);
-		['HitBox'] = Color3.fromRGB(255, 151, 227);
+		['Accent'] = Color3.fromRGB(13, 104, 0);
+		['HitBox'] = Color3.fromRGB(13, 104, 0);
 		['DropShadow']   = ColorSequence.new(Color3.fromRGB(0, 0, 0));
 
 	};
@@ -123,7 +123,7 @@ local syde = {
 	Build = 'Sv0';
 	plugins = {};
 	ConfigEnabled = false;
-	ConfigFolder = 'Syde';
+	ConfigFolder = 'Bamboo';
 	ConfigFile = 'Config';
 	Flags = {};
 	SettingsFlags = {};
@@ -1415,7 +1415,7 @@ do
 		-- PreLoad
 		Config.Name = Config.Name or 'Syde™'
 		Config.Logo = Config.Logo or 'rbxassetid://14554547135'
-		Config.ConfigFolder = Config.ConfigFolder or 'syde'
+		Config.ConfigFolder = Config.ConfigFolder or 'Bamboo'
 		Config.Status = Config.Status or false
 		Config.Accent = Config.Accent or syde.theme.Accent
 		Config.HitBox = Config.HitBox or syde.theme.HitBox
@@ -1454,8 +1454,9 @@ do
 		end
 
 		LOADER.loader.profile.Image = LoaderConfig.Logo;
-		LOADER.loader.ImageLabel.Image = LoaderConfig.Logo;
-		--	LOADER.load.info.build.Text = syde.Build
+		LOADER.loader.ImageLabel.Visible = false;
+		LOADER.loader.profile.Title.RichText = true;
+		LOADER.loader.profile.Title.Text = '<font color="#00ff00">Bamboo</font>';
 
 		local ti = TweenInfo.new(0.5, Enum.EasingStyle.Exponential)
 
@@ -2877,8 +2878,16 @@ function syde:Init(library)
 	end
 
 	--ui elements
-	top.title.Text = Data.Title
-	top.title.sub.Text = Data.SubText
+	top.title.Visible = false
+	top.title.sub.Visible = false
+
+	local topIcon = Instance.new("ImageLabel", top)
+	topIcon.Name = "TopIcon"
+	topIcon.BackgroundTransparency = 1
+	topIcon.Size = UDim2.new(0, 30, 0, 30)
+	topIcon.Position = UDim2.new(0, 15, 0.5, -15)
+	topIcon.Image = "rbxassetid://77273004669623"
+	topIcon.ScaleType = Enum.ScaleType.Fit
 
 	--dragging
 	syde:AddDrag(top, window, true)

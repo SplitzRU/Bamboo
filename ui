@@ -1427,7 +1427,7 @@ do
 
 		local LoaderConfig = {
 			Name = Config.Name;
-			Logo = 'rbxthumb://type=Asset&id='..Config.Logo..'&w=150&h=150';
+			Logo = 'rbxassetid://'..Config.Logo;
 			ConfigFolder = Config.ConfigFolder;
 			Status = Config.Status;
 			Accent = Config.Accent or syde.theme.Accent;
@@ -2886,7 +2886,7 @@ function syde:Init(library)
 	topIcon.BackgroundTransparency = 1
 	topIcon.Size = UDim2.new(0, 30, 0, 30)
 	topIcon.Position = UDim2.new(0, 15, 0.5, -15)
-	topIcon.Image = "rbxthumb://type=Asset&id=77273004669623&w=150&h=150"
+	topIcon.Image = "rbxassetid://116577651684559"
 	topIcon.ScaleType = Enum.ScaleType.Fit
 	
 	tweenservice:Create(topIcon, TweenInfo.new(3, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1), {Rotation = 360}):Play()

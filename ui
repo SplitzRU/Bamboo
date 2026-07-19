@@ -2212,14 +2212,16 @@ function syde:Notify(Notification)
 		Notification.icon.Image = 'rbxassetid://'..NotifData.Icon
 		Notification.icon.Visible = true
 
+		Notification.ClipsDescendants = true
+
 		local bgSpin = Instance.new("ImageLabel", Notification)
 		bgSpin.Name = "BgSpin"
 		bgSpin.BackgroundTransparency = 1
 		bgSpin.Size = UDim2.new(0, 80, 0, 80)
-		bgSpin.Position = UDim2.new(1, -20, 0.5, 0)
+		bgSpin.Position = UDim2.new(1, -10, 0.5, 0)
 		bgSpin.AnchorPoint = Vector2.new(1, 0.5)
 		bgSpin.Image = "rbxassetid://116577651684559"
-		bgSpin.ImageTransparency = 0.85
+		bgSpin.ImageTransparency = 0.6
 		bgSpin.ZIndex = 0
 		tweenservice:Create(bgSpin, TweenInfo.new(4, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1), {Rotation = 360}):Play()
 
